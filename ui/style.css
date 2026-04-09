@@ -1,0 +1,192 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single&display=swap');
+
+:root {
+    --nothing-red: #FF0000;
+    --nothing-black: #000000;
+    --nothing-white: #FFFFFF;
+    --nothing-gray: #1A1A1A;
+    --font-dot: 'Bitcount Grid Single', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--nothing-black);
+    color: var(--nothing-white);
+    font-family: var(--font-dot);
+    overflow: hidden;
+}
+
+h1, h2, h3, p, a, label, span {
+    font-family: var(--font-dot);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.color-red { color: var(--nothing-red); }
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+}
+
+.panel {
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    position: relative;
+}
+
+.panel:last-child { border-right: none; }
+
+.header {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    font-size: 1.2rem;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.v-center {
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    font-size: 5rem;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.spec-box {
+    background: var(--nothing-gray);
+    padding: 20px;
+    border-radius: 2px;
+}
+
+.spec-box.full-width { grid-column: span 2; }
+
+.spec-box label {
+    display: block;
+    font-size: 1rem;
+    color: var(--nothing-red);
+    margin-bottom: 5px;
+}
+
+.spec-box p { font-size: 1.4rem; }
+
+.project-card {
+    background: var(--nothing-white);
+    color: var(--nothing-black);
+    padding: 40px;
+    width: 100%;
+    text-align: left;
+}
+
+.project-title { font-size: 3.5rem; line-height: 1; }
+.tag { font-size: 1.5rem; margin: 10px 0; color: #666; }
+.status { font-size: 1.2rem; margin-bottom: 30px; color: var(--nothing-red); }
+
+.download-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nothing-black);
+    color: var(--nothing-white);
+    text-decoration: none;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+.right-panel { background-color: var(--nothing-white); color: var(--nothing-black); }
+
+.phone-frame img {
+    width: 100%;
+    max-height: 55vh;
+    object-fit: contain;
+}
+
+.phone-footer { margin-top: 40px; }
+.phone-footer h3 { font-size: 2.5rem; }
+.phone-footer p { font-size: 1.2rem; color: #666; }
+
+.actions { display: flex; gap: 15px; }
+.btn {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.btn-white { background: var(--nothing-white); color: var(--nothing-black); }
+.btn-outline { border: 1px solid var(--nothing-white); color: var(--nothing-white); }
+.btn:hover { background: var(--nothing-red); color: white; border-color: var(--nothing-red); }
+
+@media (max-width: 1100px) {
+    .dashboard { grid-template-columns: 1fr; overflow-y: auto; }
+    .panel { height: auto; padding: 100px 40px; border-right: none; border-bottom: 1px solid #333; }
+    .title { font-size: 3.5rem; }
+}
+.spotify-card {
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--nothing-red);
+}
+
+.pulse {
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+#track-name {
+
+    font-size: 2.2rem; 
+    line-height: 1.1;
+    margin-bottom: 15px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#artist-name {
+    font-size: 1.1rem;
+    opacity: 0.7;
+}
