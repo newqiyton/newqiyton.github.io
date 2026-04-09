@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single&display=swap');
+
+:root {
+    --nothing-red: #FF0000;
+    --nothing-black: #000000;
+    --nothing-white: #FFFFFF;
+    --nothing-gray: #1A1A1A;
+    --font-dot: 'Bitcount Grid Single', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--nothing-black);
+    color: var(--nothing-white);
+    font-family: var(--font-dot);
+    overflow: hidden;
+}
+
+/* Nav same as index */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 1000;
+    background: rgba(0,0,0,0.9);
+    border-bottom: 1px solid #222;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: #666;
+    font-size: 1.2rem;
+    padding: 5px 15px;
+    text-transform: uppercase;
+}
+
+.nav-btn.active {
+    color: var(--nothing-white);
+    border: 1px solid var(--nothing-white);
+}
+
+/* Dashboard Structure */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 60px;
+}
+
+.panel {
+    border-right: 1px solid #222;
+    padding: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel:last-child { border-right: none; }
+
+.header {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    color: var(--nothing-red);
+    text-transform: uppercase;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Typography */
+.title {
+    font-size: 3.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.status-tag {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--nothing-red);
+}
+
+.desc-box p {
+    font-size: 1.5rem;
+    color: #888;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.feature-list {
+    list-style: none;
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+
+.feature-list li { margin-bottom: 10px; }
+
+/* The Grid Resources */
+.download-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+.grid-item {
+    background: var(--nothing-gray);
+    padding: 25px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.grid-item label {
+    color: var(--nothing-red);
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.grid-item span {
+    font-size: 1.5rem;
+}
+
+.grid-item.highlight {
+    background: var(--nothing-white);
+    color: var(--nothing-black);
+}
+
+.grid-item:hover {
+    border-color: var(--nothing-red);
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+@media (max-width: 1100px) {
+    .dashboard { grid-template-columns: 1fr; overflow-y: auto; }
+    .panel { height: auto; padding: 100px 40px; border-right: none; border-bottom: 1px solid #222; }
+}
